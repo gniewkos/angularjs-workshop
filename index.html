@@ -9,17 +9,29 @@
   <!-- attach the ExampleController to our main content -->
   <div ng-controller="SearchController" class="container">
     <h1>Search Story</h1>
+    <br/>
 
+    <form ng-submit="search()">
+      <div class="input-group input-group-lg">
+        <input class="form-control" type="text" ng-model="searchText" placeholder="Search for ...">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit">Search</button>
+        </span>
+      </div>
+    </form><!-- /input-group -->
+
+    <br/>
     <!-- if there is an error, display its message -->
     <div ng-if="error" class="alert alert-danger" role="alert">{{error.message}}</div>
 
     <!-- if clusterState is available, display it as formatted json -->
-    <div ng-if="clusterState" class="panel panel-default">
+
+    <div ng-repeat="story in stories.hits.hits" class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Cluster State</h3>
+        <h3 class="panel-title">{{story._source.title}}</h3>
       </div>
       <div class="panel-body">
-        <pre>{{clusterState | json}}</pre>
+        <pre>{{story._source.body}}</pre>
       </div>
     </div>
   </div>
