@@ -31,13 +31,17 @@
         <h3 class="panel-title">{{story._source.title}}</h3>
       </div>
       <div class="panel-body">
-        <pre>{{story._source.body}}</pre>
+          <p ng-repeat="fragment in story.highlight.body" >
+            <span ng-bind-html="fragment"></span>
+          </p>
+
       </div>
     </div>
   </div>
 
   <!-- include bower components in proper order -->
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/elasticsearch/elasticsearch.angular.js"></script>
   <!-- include apps js -->
   <script src="js/app.js"></script>

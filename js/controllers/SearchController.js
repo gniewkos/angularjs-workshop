@@ -17,6 +17,16 @@ SearchApp.controller('SearchController', function ($scope, esClient, esFactory) 
           match_phrase: {
             body: $scope.searchText
           }
+        },
+        highlight: {
+          pre_tags: ["<mark class='bg-success'>"],
+          post_tags: ['</mark>'],
+          fields: {
+            body: {
+              fragment_size: 200,
+              number_of_fragments: 10
+            }
+          }
         }
       }
     })
