@@ -1,6 +1,6 @@
 # Search Story
 
-This is an example app desing for AngularJS & Elasticsearch workshop
+This is workshop app for AngularJS & Elasticsearch
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ http.cors:
   enabled: true
 ```
 
-## To run the example:
+## To run the examples:
 1. Clone this repo locally (or just download and unzip it)
 
   ```sh
@@ -35,3 +35,99 @@ http.cors:
   ```
 
 4. Open the index.html file in your browser.
+
+
+## Workshop
+
+### Step1
+
+  ```sh
+  git checkout tags/step1
+  ```
+
+**Task**: We are starting from github example. Just look around starting from index.html.
+Organize project according to angularjs best practices.
+(can use https://github.com/mgechev/angularjs-style-guide)
+
+Revert local changes before next step:
+
+  ```sh
+  git reset --hard
+  git clean -fd
+  ```
+
+### Step2
+
+  ```sh
+  git checkout tags/step2
+  ```
+
+**Task**: Implement basic elasticsearch searching.
+SearchController - to use $scope.searchText as input search text.
+SearchController - use query part from "SEARCH stories with highlight query" (import queries docs/Elasticsearch-Stories.json.txt to Postman)
+index.html - use the bootstrap form to input search text.
+
+  ```html
+  <form ng-submit="search()">
+    <div class="input-group input-group-lg">
+      <input class="form-control" type="text" ng-model="searchText" placeholder="Search for ...">
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="submit">Search</button>
+      </span>
+    </div>
+  </form>
+  ```
+use ng-repeat to iterate over search hits
+
+  ```html
+  <div ng-repeat="story in stories.hits.hits" class="panel panel-default">
+  ```
+
+Revert local changes before next step:
+
+  ```sh
+  git reset --hard
+  git clean -fd
+  ```
+
+### Step3
+
+  ```sh
+  git checkout tags/step3
+  ```
+
+**Task**: Implement highlighting searching.
+SearchController - use highlight part from "SEARCH stories with highlight query".
+bower.json - add angular-sanitize.
+app.js - include ngSanitize module.
+index.html - include script for angular-sanitize.
+index.html - display highlights using ng-bing-html
+
+  ```sh
+  <p ng-repeat="fragment in story.highlight.body">
+    <span ng-bind-html="fragment"></span>
+  </p>
+  ```
+SearchController - use mark tags from bootstrap
+
+  ```html
+  highlight: {
+    pre_tags: ["<mark class='bg-success'>"],
+    post_tags: ['</mark>'],
+  ```
+
+Revert local changes before next step:
+
+  ```sh
+  git reset --hard
+  git clean -fd
+  ```
+
+### Step4
+
+  ```sh
+  git checkout tags/step4
+  ```
+
+**Task**: Implement your feature and create push request:)
+
