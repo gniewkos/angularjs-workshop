@@ -25,7 +25,7 @@ http.cors:
 2. Move into the project
 
   ```sh
-  cd search-story
+  cd angularjs-workshop
   ```
 
 3. Install the bower dependencies
