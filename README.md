@@ -1,6 +1,6 @@
-# Search Story
+# AngularJS Worshop
 
-This is workshop app for AngularJS & Elasticsearch
+This is workshop app for AngularJS with Elasticsearch backend
 
 ## Prerequisites
 
