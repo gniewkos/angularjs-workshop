@@ -1,4 +1,4 @@
-# AngularJS Worshop
+# AngularJS Workshop
 
 This is workshop app for AngularJS with Elasticsearch backend
 
