@@ -19,7 +19,7 @@ http.cors:
 1. Clone this repo locally (or just download and unzip it)
 
   ```sh
-  git clone https://github.com/gniewkos/search-story.git
+  git clone https://github.com/gniewkos/angularjs-workshop.git
   ```
 
 2. Move into the project
